@@ -38,5 +38,70 @@
         </div>
     </nav>
 
+    <div class="container">
+        <h1 class="text-center mt-5">Currency Exchange Comparison</h1>
+        
+        <div class="row mt-4">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Currency 1</h5>
+                        <div class="form-group">
+                            <label for="currency1">Enter Currency Code:</label>
+                            <input type="text" class="form-control" id="currency1" placeholder="Enter currency code (e.g., USD)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 d-flex align-items-center justify-content-center">
+                <button id="swap" class="btn btn-secondary btn-block">
+                    <i class="bi bi-arrow-left-right"></i>
+                </button>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Currency 2</h5>
+                        <div class="form-group">
+                            <label for="currency2">Enter Currency Code:</label>
+                            <input type="text" class="form-control" id="currency2" placeholder="Enter currency code (e.g., EUR)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Amount</h5>
+                        <div class="form-group">
+                            <label for="amount">Enter Amount:</label>
+                            <input type="number" class="form-control" id="amount" placeholder="Enter amount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <button id="convert" class="btn btn-primary btn-block">Convert</button>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Conversion Result</h5>
+                        <div id="conversionResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
