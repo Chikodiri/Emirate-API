@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    let map1, map2;
+    let marker1, marker2;
 
     // Function to initialize Google Map for location 1
     function initMap1() {
@@ -17,6 +19,24 @@ $(document).ready(function () {
             zoom: 6,
         });
     }
+
+    // Function to load Google Maps API
+    function loadGoogleMapsAPI(callback1, callback2) {
+        const script = document.createElement("script");
+        const GOOGLE_MAPS_API_KEY = 'AIzaSyDF2K4MVXawaKO0IQONBA5Jc04mBIfbdxE';
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places`;
+        script.defer = true;
+        script.async = true;
+        script.onload = function () {
+            callback1();
+            callback2();
+        };
+        document.head.appendChild(script);
+    }
+
+    // Call the function to load Google Maps API for both maps
+    loadGoogleMapsAPI(initMap1, initMap2);
+
     // Click event handler for Get Weather button - Location 1
     $('#getWeather1').click(function () {
         const location = $('#location1').val().trim();
@@ -71,6 +91,42 @@ $(document).ready(function () {
             },
             error: function () {
                 alert('Error retrieving weather data');
+            }
+        });
+    }
+
+    // Function to geocode location and show on map
+    function showMap(location, locationNumber) {
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ address: location }, function (results, status) {
+            if (status === 'OK') {
+                const latLng = results[0].geometry.location;
+
+                if (locationNumber === '1' && map1) {
+                    map1.setCenter(latLng); // Center map to new location
+                    if (marker1) {
+                        marker1.setMap(null); // Remove previous marker from map
+                    }
+                    marker1 = new google.maps.Marker({
+                        position: latLng,
+                        map: map1,
+                        title: location
+                    });
+                } else if (locationNumber === '2' && map2) {
+                    map2.setCenter(latLng); // Center map to new location
+                    if (marker2) {
+                        marker2.setMap(null); // Remove previous marker from map
+                    }
+                    marker2 = new google.maps.Marker({
+                        position: latLng,
+                        map: map2,
+                        title: location
+                    });
+                } else {
+                    alert('Map not initialized');
+                }
+            } else {
+                alert(`Geocode was not successful for ${locationNumber} for the following reason: ` + status);
             }
         });
     }
