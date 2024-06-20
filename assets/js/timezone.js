@@ -9,7 +9,20 @@ $(document).ready(function () {
             }
         });
     }
-    
+
+    // Initialize autocomplete for location inputs
+    fetchTimezoneData(function(data) {
+        const timezones = data;
+
+        $('#location1, #location2').autocomplete({
+            source: timezones,
+            minLength: 2, // Minimum characters before triggering autocomplete
+            select: function(event, ui) {
+                console.log(ui.item.value);
+            }
+        });
+    });
+
     // Get Info button click event
     $('#get_info').click(function () {
         const location1 = $('#location1').val().trim();
