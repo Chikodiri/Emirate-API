@@ -9,7 +9,7 @@ $(document).ready(function () {
             }
         });
     }
-
+    
     // Get Info button click event
     $('#get_info').click(function () {
         const location1 = $('#location1').val().trim();
@@ -77,6 +77,23 @@ $(document).ready(function () {
         });
     }
 
+    // Function to show locations on Google Map
+    function showLocationsOnMap(location1, location2) {
+        const geocoder = new google.maps.Geocoder();
+
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: {  lat: 43.67, lng: -79.38 }
+        });
+
+        if (location1) {
+            geocodeAndPlaceMarker(geocoder, map, location1);
+        }
+        
+        if (location2) {
+            geocodeAndPlaceMarker(geocoder, map, location2);
+        }
+    }
 
     // Function to geocode and place marker on Google Map
     function geocodeAndPlaceMarker(geocoder, map, location) {
@@ -93,4 +110,31 @@ $(document).ready(function () {
             }
         });
     }
+});
+
+$(document).ready(function() {
+    // Google Maps API initialization
+    let map;
+    let markers = [];
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 43.67, lng: -79.38}, // Default location (Humber college)
+            zoom: 2 // Default zoom level
+        });
+    }
+
+    function addMarker(location) {
+        const marker = new google.maps.Marker({
+            position: { lat: location.lat, lng: location.lng },
+            map: map,
+            label: location.label,
+            title: location.title
+        });
+
+        markers.push(marker);
+    }
+
+    // Initialize map when the page is loaded
+    initMap();
 });
