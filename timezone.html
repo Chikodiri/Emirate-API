@@ -38,6 +38,50 @@
             </ul>
         </div>
     </nav>
+    <div class="container">
+        <h1 class="text-center mt-5">Timezone Information Comparison</h1>
+        
+        <div class="row mt-4">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location 1</h5>
+                        <div class="form-group">
+                            <label for="location1">Enter Location:</label>
+                            <input type="text" class="form-control" id="location1" placeholder="Enter location (e.g., America/New_York)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button id="get_info" class="btn btn-primary btn-block mt-4">Get Info</button>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location 2</h5>
+                        <div class="form-group">
+                            <label for="location2">Enter Location:</label>
+                            <input type="text" class="form-control" id="location2" placeholder="Enter location (e.g., Europe/London)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div id="timezoneInfo1"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="timezoneInfo2"></div>
+            </div>
+        </div>
+    
+        <div id="map" class="mt-5" style="height: 400px;"></div>
+    
+        
+    </div>
 
 </body>
 </html>
