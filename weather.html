@@ -35,5 +35,54 @@
         </div>
     </nav>
 
+    <div class="container">
+        <h1 class="text-center mt-5">Weather Info Dashboard</h1>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location 1</h5>
+                        <div class="form-group">
+                            <label for="location1">Enter City or Country:</label>
+                            <input type="text" class="form-control" id="location1" placeholder="Enter city or country">
+                        </div>
+                        <button id="getWeather1" class="btn btn-primary">Get Weather</button>
+                        <div id="map1" style="height: 300px; margin-top: 20px;"></div>
+                        <div id="results1" style="margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location 2</h5>
+                        <div class="form-group">
+                            <label for="location2">Enter City or Country:</label>
+                            <input type="text" class="form-control" id="location2" placeholder="Enter city or country">
+                        </div>
+                        <button id="getWeather2" class="btn btn-primary">Get Weather</button>
+                        <div id="map2" style="height: 300px; margin-top: 20px;"></div>
+                        <div id="results2" style="margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="comparisonSection" class="row mt-4" style="display: none;">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Comparison</h2>
+                        <div id="temperatureDifference"></div>
+                        <div id="minMaxDifference"></div>
+                        <div id="humidityDifference"></div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+
 </body>
 </html>
