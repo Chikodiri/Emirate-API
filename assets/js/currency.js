@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     let conversionRates = {};
 
+    // Fetch currency data from API and initialize autocomplete
     $.get(API_URL, function(data) {
         if (data.result === "success") {
             conversionRates = data.conversion_rates;
@@ -29,9 +30,12 @@ $(document).ready(function () {
     });
 
     $('#swap').click(function () {
+        // Swap currency values
         const temp = $('#currency1').val();
         $('#currency1').val($('#currency2').val());
         $('#currency2').val(temp);
+
+        // Recalculate on swap
         const currency1 = $('#currency1').val().trim().toUpperCase();
         const currency2 = $('#currency2').val().trim().toUpperCase();
         const amount = $('#amount').val().trim();
@@ -55,6 +59,7 @@ $(document).ready(function () {
 
         $('#conversionResult').html(`<p>${Number(amount).toLocaleString()} ${currency1} = ${formattedAmount} ${currency2}</p><p>1 ${currency1} = ${rate} ${currency2}</p>`);
 
+        // Reverse Conversion
         const reverseConvertedAmount = (convertedAmount / rate2) * rate1;
         const formattedReverseAmount = Number(reverseConvertedAmount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const reverseRate = (rate1 / rate2).toFixed(4);
