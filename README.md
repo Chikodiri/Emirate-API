@@ -20,3 +20,6 @@ This project is a Travel guide that provides users with functionalities includin
 - **OpenWeather API**: For fetching weather data.
 - **ExchangeRate API**: For currency conversion.
 - **World Time API**: For timezone information.
+
+## Observation
+The project was strategically chosen based on the observation knowing well that a lot of individuals would like to travel around the world during summer holdiays. As such, we have a created a website to make life easier for these travellers.
